@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 // import our components
-import GalleryItem from '../Gallery/GalleryItem.jsx';
+// import GalleryItem from '../Gallery/GalleryItem.jsx';
 import GalleryList from '../Gallery/GalleryList.jsx';
 
 function App() {
