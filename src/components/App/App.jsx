@@ -23,8 +23,8 @@ function App() {
     })
     .then((response) => {
       console.log('response', response);
-      //array response log below, needed yet?
-      // console.log('just the data', response.data)
+      // below will log just the array
+      console.log('just the data', response.data)
       setGalleryList(response.data);
     })
     .catch(function (error) {
@@ -42,9 +42,9 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        {/* <p>Gallery goes here</p> */}
+        {/* <p>Gallery gets propped up here</p> */}
         <GalleryList galleryListProp={galleryList} />
-        <img src="images/goat_small.jpg"/>
+        {/* <img src="images/goat_small.jpg"/> */}
       </div>
     );
 }

@@ -1,3 +1,5 @@
+import GalleryItem from './GalleryItem';
+
 function GalleryList({galleryListProp}) {
 
     return (
