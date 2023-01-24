@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import './App.css';
 
 // import our components
-// import GalleryItem from '../Gallery/GalleryItem.jsx';
 import GalleryList from '../Gallery/GalleryList.jsx';
 
 function App() {
@@ -13,7 +12,7 @@ function App() {
   // will need a useSelector here maybe? Available for import above.
 
   // get-ers and set-ers here
-  const [galleryList, setGalleryList] = useState([]);
+  const [galleryItems, setGalleryItems] = useState([]);
 
   // GET request
   const getGallery = () => {
@@ -25,7 +24,7 @@ function App() {
       console.log('response', response);
       // below will log just the array
       console.log('just the data', response.data)
-      setGalleryList(response.data);
+      setGalleryItems(response.data);
     })
     .catch(function (error) {
       console.log('GET error', error);
@@ -42,9 +41,7 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        {/* <p>Gallery gets propped up here</p> */}
-        <GalleryList galleryListProp={galleryList} />
-        {/* <img src="images/goat_small.jpg"/> */}
+        <GalleryList galleryListProp={galleryItems} />
       </div>
     );
 }

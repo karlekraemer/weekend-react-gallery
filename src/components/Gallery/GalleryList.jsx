@@ -4,18 +4,16 @@ function GalleryList({galleryListProp}) {
 
     return (
         <>
-        {/* is this pizza? */}
-        {/* {galleryList}  */}
-            {/* {JSON.stringify(props.creatureListProp)} */}
-            {/* <h2>HEADY HEADER</h2> */}
-            <GalleryItem />
-            <ul>
-                {galleryListProp.map(item => 
-                    (<li key={item.id}>
-                        {item.path} {item.description} {item.likes}
-                    </li>)
-                )}
-            </ul>
+            {galleryListProp.map(item => 
+                (
+                    <div className="item" key={item.id}>
+                        <GalleryItem item={item}/>
+                        <br/>
+                        <button>me likey</button>
+                        <p>{item.likes}</p>
+                    </div>
+                )
+            )}
         </>
     )
 }
