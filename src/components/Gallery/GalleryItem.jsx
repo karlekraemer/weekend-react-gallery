@@ -1,7 +1,8 @@
 import {useState} from 'react';
+import axios from 'axios';
 
 // display the pictures themselves and write code to have them react to click events
-function GalleryItem({item}) {
+function GalleryItem({item, getGallery}) {
 
     const [isClicked, setIsClicked] = useState(true);
     
@@ -12,23 +13,32 @@ function GalleryItem({item}) {
         setIsClicked(!isClicked);
     }
 
-    // const picOrDescription = () => {
-    //     if (item.path) {
-    //         // need to return JSX
-    //         return <p>RENDER PICTURE</p>;
-    //     } else {
-    //         // need to return JSX
-    //         return <p>RENDER DESCRIPTION</p>;
-    //     }
-    // }
+    const incrementLike = () => {
+        axios({
+            method: 'PUT',
+            url: `/gallery/like/${item.id}`
+        })
+        .then(response => {
+            alert(`you liked ${item.description} image!`);
+            getGallery();
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
     return (
-        <div className="item" key={item.id}>  
-            <>
+        <>
+            <div className="item" key={item.id}>  
                 {/* when img is clicked, change to the description */}
-                {isClicked ? <img onClick={photoIsClicked} src={item.path}/> : <>{item.description}</>}
-            </> 
-        </div>
+                <div>
+                    {isClicked ? <img onClick={photoIsClicked} src={item.path}/> : <>{item.description}</>}
+                </div>
+                <br/>
+                <button className="likes" onClick={incrementLike}>me likey</button>
+                <p>{item.likes}</p>    
+            </div>
+        </> 
     );
 }
 

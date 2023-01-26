@@ -1,16 +1,16 @@
 import GalleryItem from './GalleryItem';
 
-function GalleryList({galleryListProp}) {
+function GalleryList({galleryListProp, getGallery}) {
 
     return (
         <>
             {galleryListProp.map(item => 
                 (
                     <div className="item" key={item.id}>
-                        <GalleryItem item={item}/>
-                        <br/>
-                        <button>me likey</button>
-                        <p>{item.likes}</p>
+                        <GalleryItem 
+                            item={item}
+                            getGallery={getGallery}
+                        />
                     </div>
                 )
             )}
